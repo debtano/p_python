@@ -1,0 +1,4 @@
+First : List the steps to accomplish the task
+Second : For each step, clearly define the objective, inputs and outputs
+Third : get inside each step, or helper function, and pseudo code how to accomplish that step
+Four : code each step separately using the previous steps instructions
