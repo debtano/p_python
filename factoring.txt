@@ -2,3 +2,60 @@ First : List the steps to accomplish the task
 Second : For each step, clearly define the objective, inputs and outputs
 Third : get inside each step, or helper function, and pseudo code how to accomplish that step
 Four : code each step separately using the previous steps instructions
+
+## Factoring notes
+
+Break problem into steps (not even pseudo code at this time) - for example
+
+
+    Open an article
+    Find the first link in the article
+    Follow the link
+    Record the link in the article_chain data structure.
+    Repeat this process until we reach the Philosophy article, or get stuck in an article cycle.
+
+Based on this , decide on the algorithm 
+Then , decide on the data structure to use
+Review the sequence of steps
+write the pseudo code - for example
+
+page = a random starting page
+article_chain = []
+while title of page isn't 'Philosophy' and we have not discovered a cycle:
+    append page to article_chain
+    download the page content
+    find the first link in the content
+    page = that link
+    pause for a second
+
+function by function ....
+
+def web_crawl():
+    while continue_crawl(article_chain, target_url): 
+        # download html of last article in article_chain
+        # find the first link in that html
+        first_link = find_first_link(article_chain[-1])
+        # add the first link to article chain
+        article_chain.append(first_link)
+        # delay for about two seconds
+        # TODO: YOUR CODE HERE!
+        sleep(2)
+
+starting to mix code, interfaces (find_first_link does not exist yet but we know what it needs and what return)
+
+another example ....
+
+def find_first_link(url):
+    # get the HTML from "url", use the requests library
+    # feed the HTML into Beautiful Soup
+    # find the first link in the article
+    # return the first link as a string, or return None if there is no link
+
+Now that I have a plan I can implement it. It's always possible to start coding without a plan, but I've found that a few minutes of planning can prevent hours of wasted time. As I work I'll replace these comments with working code.
+
+The first subtask is pretty simple, we learned how to do this when we tried the requests library:
+
+# get the HTML from "url", use the requests library
+response = requests.get(url)
+html = response.text
+
